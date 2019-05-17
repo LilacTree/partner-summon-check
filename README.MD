@@ -1,6 +1,5 @@
 # partner-summon-check
-TERA-proxy module for TERA Online. Check to see if you have your partner summoned when using skills or entering combat.  
-#partner #companion #pet #pet-summon-check
+TERA-proxy module for TERA Online. Check to see if you have your partner summoned when using skills or entering combat.
 
 ## Commands
 List of in-game commands (use in /proxy or /8 channel):  
