@@ -2,7 +2,7 @@ module.exports = function PartnerSummonCheck(mod) {
 	const command = mod.command;
 	const config = require('./config.json');
 
-    let	enabled = true,
+	let	enabled = true,
 		notice = false;
 		
 	let	myGameId = null,
@@ -12,8 +12,8 @@ module.exports = function PartnerSummonCheck(mod) {
 		havePartner = false;
 	
 	command.add('partnersummoncheck', {
-        $none() {
-            enabled = !enabled;
+		$none() {
+			enabled = !enabled;
 			command.message(`Partner Summon Check Mod is now: ${enabled ? "enabled" : "disabled"}.`);
 		},
 		$default() {
@@ -38,11 +38,10 @@ module.exports = function PartnerSummonCheck(mod) {
 		else {
 			havePartner = false;
 		}
-    });
+	});
 	
 	mod.hook('S_REQUEST_SPAWN_SERVANT', 1, (event) => {		
-		if (myGameId === event.owner && event.fellowship >= 1){
-			
+		if (myGameId === event.owner && event.fellowship >= 1){		
 			if (!(partnerInfo.filter(function(a) { return a.gameId === event.gameId; }).length > 0)) {
 				let partnerObject = {gameId: event.gameId, dbid: event.dbid, id: event.id, fellowship: event.fellowship};
 				partnerInfo.push(partnerObject);
@@ -55,7 +54,7 @@ module.exports = function PartnerSummonCheck(mod) {
 				}
 			}
 		}
-    });
+	});
 	
 	mod.hook('S_REQUEST_DESPAWN_SERVANT', 1, (event) => {	
 		if (partnerInfo.filter(function(a) { return a.gameId === event.gameId; }).length > 0) {
@@ -67,11 +66,10 @@ module.exports = function PartnerSummonCheck(mod) {
 			if (notice) {
 				command.message("Dismissed your partner!");
 			}
-			
 			despawnRestriction = true;
 			setTimeout(()=>{ despawnRestriction = false; }, 2500);
 		}
-    });
+	});
 	
 	mod.hook('S_USER_STATUS', 3, (event) => {
 		if (!enabled) return;
@@ -118,7 +116,6 @@ module.exports = function PartnerSummonCheck(mod) {
 	function processSummonCheck() {
 		if (!warningRestriction && !despawnRestriction && havePartner) {
 			let isPartnerSummoned = partnerSummonStatus();
-
 			if (!isPartnerSummoned) {
 				warningRestriction = true;
 				setTimeout(()=>{ warningRestriction = false; }, 1000);
@@ -128,10 +125,11 @@ module.exports = function PartnerSummonCheck(mod) {
 	}
 
 	function loadConfig() {
-        if (config) {
+		if (config) {
 			({enabled, notice} = config)
-        } else {
-            command.message("Error: Unable to load config.json - Using default values for now");
-        }
-    }
+		}
+		else {
+			command.message("Error: Unable to load config.json - Using default values for now");
+		}
+	}
 }
