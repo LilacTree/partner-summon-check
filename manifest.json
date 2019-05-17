@@ -1,0 +1,22 @@
+{
+    "files": {
+		"config.json": {
+			"overwrite": false,
+			"hash": "9123486517607fdb724f89c16d156028d03213900efce53b207639cee96a23c6"
+		},
+		"index.js": "7bc168f9a2a342c13d66dead5256f46a7f92981c4085849706ebbb37e57edbd0",
+		"module.json": "27d2b48fc4e3c006ca741514374b620100dcdd72cbd3970412713416d0389f36",
+		"README.MD": "09a06143090fc08b198c7bff7cc5f78a5d06e135b39a1de8e746eb8b2893be16"
+    },
+    "defs": {
+        "C_PRESS_SKILL": "raw",
+        "C_START_COMBO_INSTANT_SKILL": "raw",
+        "C_START_INSTANCE_SKILL": "raw",
+        "C_START_SKILL": "raw",
+        "C_START_TARGETED_SKILL": "raw",
+        "S_LOGIN": 13,
+        "S_REQUEST_DESPAWN_SERVANT": 1,
+        "S_REQUEST_SPAWN_SERVANT": 1,
+        "S_USER_STATUS": 3
+    }
+}

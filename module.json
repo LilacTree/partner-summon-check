@@ -1,0 +1,12 @@
+{
+    "disableAutoUpdate": false,
+    "name": "partner-summon-check",
+    "author": "LilacTree",
+    "description": "Check to see if you have your partner summoned when using skills or entering combat",
+    "version": "5/16/2019",
+    "options": {
+        "niceName": "Partner Summon Check"
+    },
+    "servers": ["https://raw.githubusercontent.com/LilacTree/partner-summon-check/master/"],
+    "supportUrl": "https://github.com/LilacTree/partner-summon-check/issues"
+}
