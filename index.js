@@ -7,7 +7,9 @@ module.exports = function PartnerSummonCheck(mod) {
 		
 	let	myGameId = null,
 		partnerInfo = [],
-		warningRestriction = false;
+		warningRestriction = false,
+		despawnRestriction = false,
+		havePartner = false;
 	
 	command.add('partnersummoncheck', {
         $none() {
@@ -28,6 +30,14 @@ module.exports = function PartnerSummonCheck(mod) {
 		myGameId = event.gameId;
 		partnerInfo = [];
 		warningRestriction = false;
+		despawnRestriction = false;
+		
+		if (event.servants.filter(function(a) { return a.type === 1; }).length > 0) {
+			havePartner = true;
+		}
+		else {
+			havePartner = false;
+		}
     });
 	
 	mod.hook('S_REQUEST_SPAWN_SERVANT', 1, (event) => {		
@@ -36,9 +46,12 @@ module.exports = function PartnerSummonCheck(mod) {
 			if (!(partnerInfo.filter(function(a) { return a.gameId === event.gameId; }).length > 0)) {
 				let partnerObject = {gameId: event.gameId, dbid: event.dbid, id: event.id, fellowship: event.fellowship};
 				partnerInfo.push(partnerObject);
+				havePartner = true;
 				
-				if (enabled && notice) {
-					command.message("Summoned your partner!")
+				if (!enabled) return;
+				
+				if (notice) {
+					command.message("Summoned your partner!");
 				}
 			}
 		}
@@ -49,9 +62,14 @@ module.exports = function PartnerSummonCheck(mod) {
 			let partnerIndex = partnerInfo.findIndex(a => a.gameId === event.gameId);
 			partnerInfo.splice(partnerIndex, 1);
 			
-			if (enabled && notice) {
-				command.message("Dismissed your partner!")
+			if (!enabled) return;
+			
+			if (notice) {
+				command.message("Dismissed your partner!");
 			}
+			
+			despawnRestriction = true;
+			setTimeout(()=>{ despawnRestriction = false; }, 2500);
 		}
     });
 	
@@ -98,7 +116,7 @@ module.exports = function PartnerSummonCheck(mod) {
 	}
 	
 	function processSummonCheck() {
-		if (!warningRestriction) {
+		if (!warningRestriction && !despawnRestriction && havePartner) {
 			let isPartnerSummoned = partnerSummonStatus();
 
 			if (!isPartnerSummoned) {

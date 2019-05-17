@@ -14,3 +14,4 @@ List of in-game commands (use in /proxy or /8 channel):
 ## Notes
 - If there are no opcodes for your region, get them yourself using https://github.com/SoliaRdi/PacketsLogger
 - Modify the config file to customize settings
+- Module only works if you own a partner

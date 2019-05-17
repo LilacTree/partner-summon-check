@@ -4,9 +4,9 @@
 			"overwrite": false,
 			"hash": "9123486517607fdb724f89c16d156028d03213900efce53b207639cee96a23c6"
 		},
-		"index.js": "7bc168f9a2a342c13d66dead5256f46a7f92981c4085849706ebbb37e57edbd0",
+		"index.js": "d7b6b30506307ab5599782c6379df945a24a6319e37c83bfe92759aa97078205",
 		"module.json": "27d2b48fc4e3c006ca741514374b620100dcdd72cbd3970412713416d0389f36",
-		"README.MD": "c319eda6e0f1dc26680482d9895b5653720df09cc41bb1830819bd53fcbeee3e"
+		"README.MD": "94d96f107681b4f7fa1cf29ba22aff813ea0f42da40d8048ec9eaf2c936ff046"
     },
     "defs": {
         "C_PRESS_SKILL": "raw",
