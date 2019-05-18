@@ -17,7 +17,7 @@ module.exports = function PartnerSummonCheck(mod) {
 			command.message(`Partner Summon Check Module is now: ${enabled ? "enabled" : "disabled"}.`);
 		},
 		$default() {
-			command.message("Invalid command! See README for the list of valid commands")
+			command.message("Invalid command! See README for the list of valid commands.")
 		},
 		notice() {
 			notice = !notice;
