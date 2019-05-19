@@ -9,7 +9,7 @@ module.exports = function PartnerSummonCheck(mod) {
 		partnerInfo = [],
 		warningRestriction = false,
 		despawnRestriction = false,
-		havePartner = false;
+		ownPartner = false;
 	
 	command.add('partnersummoncheck', {
 		$none() {
@@ -33,10 +33,10 @@ module.exports = function PartnerSummonCheck(mod) {
 		despawnRestriction = false;
 		
 		if (event.servants.filter(function(a) { return a.type === 1; }).length > 0) {
-			havePartner = true;
+			ownPartner = true;
 		}
 		else {
-			havePartner = false;
+			ownPartner = false;
 		}
 	});
 	
@@ -45,7 +45,7 @@ module.exports = function PartnerSummonCheck(mod) {
 			if (!(partnerInfo.filter(function(a) { return a.gameId === event.gameId; }).length > 0)) {
 				let partnerObject = {gameId: event.gameId, dbid: event.dbid, id: event.id, fellowship: event.fellowship};
 				partnerInfo.push(partnerObject);
-				havePartner = true;
+				ownPartner = true;
 				
 				if (!enabled) return;
 				
@@ -114,7 +114,7 @@ module.exports = function PartnerSummonCheck(mod) {
 	}
 	
 	function processSummonCheck() {
-		if (!warningRestriction && !despawnRestriction && havePartner) {
+		if (!warningRestriction && !despawnRestriction && ownPartner) {
 			let isPartnerSummoned = partnerSummonStatus();
 			if (!isPartnerSummoned) {
 				warningRestriction = true;
