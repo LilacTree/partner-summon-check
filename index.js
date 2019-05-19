@@ -74,7 +74,7 @@ module.exports = function PartnerSummonCheck(mod) {
 	mod.hook('S_USER_STATUS', 3, (event) => {
 		if (!enabled) return;
 		
-		if (event.gameId === myGameId && event.status == 1) {
+		if (event.gameId === myGameId && event.status === 1) {
 			processSummonCheck();
 		}
 	});
