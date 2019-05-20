@@ -1,5 +1,5 @@
 {
-    "files": {
+	"files": {
 		"config.json": {
 			"overwrite": false,
 			"hash": "9123486517607fdb724f89c16d156028d03213900efce53b207639cee96a23c6"
@@ -7,17 +7,17 @@
 		"index.js": "54ff9274aaae47bcb51cf1db1212c2215b52465cbb56ba4db9556c92230d085a",
 		"module.json": "54b13a44e0a5fb0b82a452af1736deace464e04296693a13675f472092bbf633",
 		"README.MD": "1c803d748003595a3e6cb081e9a93b8782988c8d8b91af80e6ffabc510b42406"
-    },
-    "defs": {
-        "C_PRESS_SKILL": "raw",
-        "C_START_COMBO_INSTANT_SKILL": "raw",
-        "C_START_INSTANCE_SKILL": "raw",
-        "C_START_SKILL": "raw",
-        "C_START_TARGETED_SKILL": "raw",
-        "S_LOGIN": 13,
+	},
+	"defs": {
+		"C_PRESS_SKILL": "raw",
+		"C_START_COMBO_INSTANT_SKILL": "raw",
+		"C_START_INSTANCE_SKILL": "raw",
+		"C_START_SKILL": "raw",
+		"C_START_TARGETED_SKILL": "raw",
+		"S_LOGIN": 13,
 		"S_LOAD_CLIENT_USER_SETTING": "raw",
-        "S_REQUEST_DESPAWN_SERVANT": 1,
-        "S_REQUEST_SPAWN_SERVANT": 1,
-        "S_USER_STATUS": 3
-    }
+		"S_REQUEST_DESPAWN_SERVANT": 1,
+		"S_REQUEST_SPAWN_SERVANT": 1,
+		"S_USER_STATUS": 3
+	}
 }
