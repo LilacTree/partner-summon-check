@@ -4,6 +4,9 @@ module.exports = function PartnerSummonCheck(mod) {
 
 	let	enabled = true,
 		notice = false;
+	
+	let configError1 = false,
+		configError2 = false;
 		
 	let	myGameId = null,
 		partnerInfo = [],
@@ -38,6 +41,19 @@ module.exports = function PartnerSummonCheck(mod) {
 		else {
 			ownPartner = false;
 		}
+	});
+	
+	mod.hook('S_LOAD_CLIENT_USER_SETTING', 'raw', () => {
+		if (!enabled) return;
+		
+		process.nextTick(() => {
+			if (configError1) {
+				command.message('<font color="#FF0000">Error</font>: Detected corrupted/outdated config file - Please update');
+			}
+			else if (configError2) {
+				command.message('<font color="#FF0000">Error</font>: Unable to load the config file - Using default values for now');
+			}
+		});
 	});
 	
 	mod.hook('S_REQUEST_SPAWN_SERVANT', 1, (event) => {		
@@ -126,10 +142,18 @@ module.exports = function PartnerSummonCheck(mod) {
 
 	function loadConfig() {
 		if (config) {
-			({enabled, notice} = config)
+			({enabled, notice} = config);
+			if (typeof enabled === 'undefined') {
+				enabled = true;
+				configError1 = true;
+			}
+			if (typeof notice === 'undefined') {
+				notice = false;
+				configError1 = true;
+			}
 		}
 		else {
-			command.message("Error: Unable to load config.json - Using default values for now");
+			configError2 = true;
 		}
 	}
 }
