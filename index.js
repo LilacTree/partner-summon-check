@@ -5,7 +5,7 @@ module.exports = function PartnerSummonCheck(mod) {
 	let	enabled = true,
 		notice = false;
 	
-	let configError1 = false,
+	let	configError1 = false,
 		configError2 = false;
 		
 	let	myGameId = null,
