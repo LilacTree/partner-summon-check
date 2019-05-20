@@ -3,8 +3,8 @@ TERA-proxy module for TERA Online that checks to see if you have your partner su
 
 ## Commands
 List of in-game commands (use in /proxy or /8 channel):  
-- `partnersummoncheck` - toggles module (default: true)
-- `partnersummoncheck notice` - toggles notice (default: false)
+- `partnersummoncheck` - Toggles module (default: true)
+- `partnersummoncheck notice` - Toggles notice (default: false)
 
 ## Installation
 - Move files in `defs` into `node_modules\tera-data\protocol\` folder
