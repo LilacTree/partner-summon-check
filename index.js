@@ -57,7 +57,7 @@ module.exports = function PartnerSummonCheck(mod) {
 	});
 	
 	mod.hook('S_REQUEST_SPAWN_SERVANT', 1, (event) => {		
-		if (myGameId === event.owner && event.fellowship >= 1){		
+		if (myGameId === event.ownerId && event.fellowship >= 1){		
 			if (!(partnerInfo.filter(function(a) { return a.gameId === event.gameId; }).length > 0)) {
 				let partnerObject = {gameId: event.gameId, dbid: event.dbid, id: event.id, fellowship: event.fellowship};
 				partnerInfo.push(partnerObject);
