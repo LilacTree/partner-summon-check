@@ -3,7 +3,7 @@
     "name": "partner-summon-check",
     "author": "LilacTree",
     "description": "Checks to see if you have your partner summoned when using skills or entering combat",
-    "version": "5/19/2019",
+    "version": "6/12/2019",
     "options": {
 		"niceName": "Partner Summon Check",
 		"guiName": "Partner Summon Check"
